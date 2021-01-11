@@ -3,9 +3,9 @@ import csv
 with open('sample data/names.csv','r')  as csvfile :
 
     csv_reader = csv.reader(csvfile)
-    #next(csv_reader) # next() will just take out the first row of the object
-    #next(csv_reader)
-    #print(csv_reader) # this will only print the object of the csv.reader method
+    # next(csv_reader) # next() will just take out the first row of the object
+    # next(csv_reader)
+    # print(csv_reader) # this will only print the object of the csv.reader method
     with open('out.csv','w') as output :
         csv_writer = csv.writer(output,delimiter='\t')
 
