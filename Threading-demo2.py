@@ -18,11 +18,17 @@ t1 = time.perf_counter()
 # for thread in threads:
 #     thread.join()
 sec = [1,2,3,4,5]
-with concurrent.futures.ThreadPoolExecutor() as executor:
-    result = executor.map(do_something,sec)
+# with concurrent.futures.ThreadPoolExecutor() as executor:
+#     result = executor.map(do_something,sec)
 
-for f in result:
-    print(f)
+# for f in result:
+#     print(f)
+print('-'*50)
+with concurrent.futures.ThreadPoolExecutor() as exe:
+    res = [exe.submit(do_something, i) for i in sec]
+
+    # for f in concurrent.futures.as_completed(res) :
+    #     print(f.result())
 
 
 
