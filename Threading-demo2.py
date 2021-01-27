@@ -25,10 +25,12 @@ sec = [1,2,3,4,5]
 #     print(f)
 print('-'*50)
 with concurrent.futures.ThreadPoolExecutor() as exe:
-    res = [exe.submit(do_something, i) for i in sec]
+    [exe.submit(do_something, i) for i in sec]
 
+    # if your function returns something then collect all the results in a variable and call .result() on top of that
     # for f in concurrent.futures.as_completed(res) :
     #     print(f.result())
+
 
 
 
