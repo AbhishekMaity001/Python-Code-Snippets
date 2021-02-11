@@ -5,7 +5,7 @@ t1 = time.perf_counter()
 
 def do_something():
     print("Sleeping for 1 seconds..")
-    time.sleep(1)
+    time.sleep(2)
     print("Done Sleeping...!!")
 
 
