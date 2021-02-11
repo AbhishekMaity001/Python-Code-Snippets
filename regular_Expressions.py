@@ -112,8 +112,11 @@ pattern = re.compile(r'\d{3}.\d{3}.\d{4}')
 matches = pattern.findall(text_to_search)
 for match in matches :
     print(match)
+print('\n')
 
 pattern = re.compile(r'https?://(www\.)?(\w+)(\.\w+)')
+print('.sub() method ---------------------')
+
 sub_pattern = pattern.sub(r'\2\3',urls)
 print(sub_pattern)
 
@@ -125,7 +128,7 @@ for match in matches :
 #print(text_to_search[50:53])
 print('**********************************************\n')
 
-with open('data.txt','r') as f:
+with open('sample data/data.txt','r') as f:
     contents = f.read()
     pattern = re.compile(r'[89]00[.-]\d\d\d[-.]\d\d\d\d')
     matches = pattern.finditer(contents)
