@@ -21,6 +21,6 @@ def add_prior(n):
 
 
 if __name__ == "__main__" :
-    # res = fibo(7)
-    res = add_prior(7)
+    res = fibo(7)
+    # res = add_prior(7)
     print(res)
