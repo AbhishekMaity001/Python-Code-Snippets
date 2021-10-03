@@ -1,35 +1,55 @@
+from concurrent.futures.process import EXTRA_QUEUED_CALLS
 import time
 import threading
-import concurrent.futures
+import concurrent.futures # Latest method of doing threading
 
+# Any Function which is consuming some amount of time
 def do_something(sec):
     print(f'Sleeping for {sec} seconds....')
-    time.sleep(1)
-    print(f"Sleeping done....{sec}")
+    time.sleep(sec)
+    # print(f"Sleeping done....{sec}")
+    return f"Sleeping done .. {sec}"
 
-t1 = time.perf_counter()
+t1 = time.perf_counter() # Start time
 
-# threads = []
-# for _ in range(10):
-#     t = threading.Thread(target=do_something)
-#     t.start()
-#     threads.append(t)
-#
-# for thread in threads:
-#     thread.join()
-sec = [1,2,3,4,5]
+'''
+    If you want to execute a method once at a time then use the submit method on the executor, Submit method places a function to be 
+    executed and returns a future Object! The future Object basically encapsulates the execution of the function & also allows us to 
+    check the state of the function once it is scheduled ie.. it is running or done etc. and also check the result. & if you grab the
+    result then it will give you the return value of the function.
+'''
 # with concurrent.futures.ThreadPoolExecutor() as executor:
-#     result = executor.map(do_something,sec)
+#     f1 = executor.submit(do_something, 1)
+#     f2 = executor.submit(do_something, 1)
+#     f3 = executor.submit(do_something, 1)
+#     print(f1.result())
+#     print(f2.result())
+#     print(f3.result())
 
-# for f in result:
-#     print(f)
-print('-'*50)
-with concurrent.futures.ThreadPoolExecutor() as exe:
-    [exe.submit(do_something, i) for i in sec]
+# with concurrent.futures.ThreadPoolExecutor() as exe:
+#     seconds_list = [5,4,3,2,1]
+#     results = [exe.submit(do_something, s) for s in seconds_list]
+    
+#     for f in concurrent.futures.as_completed(results): # as_completed will give you a generator object and yield the values of threads as they are completed!
+#         print(f.result())
 
-    # if your function returns something then collect all the results in a variable and call .result() on top of that
-    # for f in concurrent.futures.as_completed(res) :
-    #     print(f.result())
+
+# Using the map method to run a entire function over a list of values
+with concurrent.futures.ThreadPoolExecutor() as executor:
+    seconds_list = [5,4,3,2,1]
+    results = executor.map(do_something,seconds_list) # when you use the submit method then it returns the future object but when you use map then it returns result directly.
+    
+    # This will return the order by which they were started (all will be started concurrently only) but returns as they were scheduled!
+    for result in results: # this loop is just optional!! 
+        print(result, '\n')
+
+    # NOTE : if any exception is there then it won't raise the exception while executing the threads!! 
+    #        it will raise the exception while looping through the results so, you can put them in try catch block.
+
+
+
+
+
 
 
 
