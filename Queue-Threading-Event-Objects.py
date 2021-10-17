@@ -18,7 +18,7 @@ import numpy as np
 # event.is_set()
 
 def flag():
-    time.sleep(3)
+    time.sleep(5)
     event.set()
     print('starting count down!!')
     time.sleep(5)
@@ -36,6 +36,7 @@ def start_operations():
     print('Event has been cleared now event.clear() is called !!')
 
 event = threading.Event()
+print('starting thread execution')
 t1 = threading.Thread(target=flag)
 t2 = threading.Thread(target=start_operations)
 t1.start()

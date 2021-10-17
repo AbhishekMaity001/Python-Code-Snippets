@@ -4,11 +4,11 @@ import threading
 import concurrent.futures # Latest method of doing threading
 
 # Any Function which is consuming some amount of time
-def do_something(sec):
-    print(f'Sleeping for {sec} seconds....')
-    time.sleep(sec)
+def do_something(a, b):
+    print(f'Sleeping for {2} seconds....')
+    time.sleep(2)
     # print(f"Sleeping done....{sec}")
-    return f"Sleeping done .. {sec}"
+    return a, b
 
 t1 = time.perf_counter() # Start time
 
@@ -36,10 +36,10 @@ t1 = time.perf_counter() # Start time
 
 # Using the map method to run a entire function over a list of values
 with concurrent.futures.ThreadPoolExecutor() as executor:
-    seconds_list = [5,4,3,2,1]
-    results = executor.map(do_something,seconds_list) # when you use the submit method then it returns the future object but when you use map then it returns result directly.
+    seconds_list = [(5,4),(3,2),(1,22)]
+    results = executor.map(do_something, seconds_list) # when you use the submit method then it returns the future object but when you use map then it returns result directly.
     
-    # This will return the order by which they were started (all will be started concurrently only) but returns as they were scheduled!
+#     # This will return the order by which they were started (all will be started concurrently only) but returns as they were scheduled!
     for result in results: # this loop is just optional!! 
         print(result, '\n')
 

@@ -29,7 +29,7 @@ import threading
 def putting_thread(q):
     while True:
         print('Starting thread \n')
-        time.sleep(10)
+        time.sleep(5)
         q.put(5)
         print('put something \n')
 
@@ -39,7 +39,8 @@ t.start()
 
 q.put(55)
 print('first item gotten \n')
-# while True:
-#     print(q.get())
-#     print('finished')
+# print(q.get())
+while True:
+    print(q.get())
+    print('finished')
 

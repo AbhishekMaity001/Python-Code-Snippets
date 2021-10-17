@@ -10,6 +10,7 @@ def do_something():
     print('Starting to Sleep 1 second')
     time.sleep(2)
     print('Done Sleeping....')
+    return 1, 2
 
 
 if __name__ == '__main__':
