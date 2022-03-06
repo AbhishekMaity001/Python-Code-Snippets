@@ -26,22 +26,22 @@ t1 = time.perf_counter() # Start time
 #     print(f2.result())
 #     print(f3.result())
 
-# with concurrent.futures.ThreadPoolExecutor() as exe:
-#     seconds_list = [5,4,3,2,1]
-#     results = [exe.submit(do_something, s) for s in seconds_list]
+with concurrent.futures.ThreadPoolExecutor() as exe:
+    seconds_list = [5,4,3,2,1]
+    results = [exe.submit(do_something, s, s+100) for s in seconds_list]
     
-#     for f in concurrent.futures.as_completed(results): # as_completed will give you a generator object and yield the values of threads as they are completed!
-#         print(f.result())
+    for f in concurrent.futures.as_completed(results): # as_completed will give you a generator object and yield the values of threads as they are completed!
+        print(f.result())
 
 
 # Using the map method to run a entire function over a list of values
-with concurrent.futures.ThreadPoolExecutor() as executor:
-    seconds_list = [(5,4),(3,2),(1,22)]
-    results = executor.map(do_something, seconds_list) # when you use the submit method then it returns the future object but when you use map then it returns result directly.
+# with concurrent.futures.ThreadPoolExecutor() as executor:
+#     seconds_list = [(5,4),(3,2),(1,22)]
+#     results = executor.map(do_something, seconds_list) # when you use the submit method then it returns the future object but when you use map then it returns result directly.
     
-#     # This will return the order by which they were started (all will be started concurrently only) but returns as they were scheduled!
-    for result in results: # this loop is just optional!! 
-        print(result, '\n')
+# #     # This will return the order by which they were started (all will be started concurrently only) but returns as they were scheduled!
+#     for result in results: # this loop is just optional!! 
+#         print(result, '\n')
 
     # NOTE : if any exception is there then it won't raise the exception while executing the threads!! 
     #        it will raise the exception while looping through the results so, you can put them in try catch block.
