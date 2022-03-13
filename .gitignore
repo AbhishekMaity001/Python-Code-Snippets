@@ -3,6 +3,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+.idea/
+.idea/*.xml
+
 # C extensions
 *.so
 
@@ -75,7 +78,7 @@ docs/_build/
 target/
 
 # Jupyter Notebook
-.ipynb_checkpoints
+.ipynb_checkpoints/
 
 # IPython
 profile_default/
