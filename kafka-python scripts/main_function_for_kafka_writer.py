@@ -1,4 +1,4 @@
-    def write_to_kafka(self,data):
+    def write_to_kafka(self, data):
         topic_name1 = settings.KAFKA_PROP['topic_name']
         kafkaObj1 = kafka_writer(settings.KAFKA_PROP['host'])
         for index,row in data.iterrows():
