@@ -1,6 +1,7 @@
 from kafka import KafkaProducer
+
 class kafka_writer:
-	def __init__(self,kafka_host):
+	def __init__(self, kafka_host):
 		self.kafka_producer = KafkaProducer(bootstrap_servers=kafka_host, api_version=(0, 10, 1))
 	
 	def send(self, key, msg, topic):
