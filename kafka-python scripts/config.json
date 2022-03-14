@@ -1,0 +1,18 @@
+{
+    "source_folder_full_path": "C:\\Users\\91799\\Documents\\GoogleDrive\\upwork\\unknown\\flatten-json-task",
+    "flatten_json_filename_additional_tag": "-service",
+    "cron_job_interval_in_seconds": 60,
+    "service_data_mapping": [
+        {
+            "key": "clients",
+            "custom_output_field_name": "Client"
+        },
+        {
+            "key": "servers",
+            "custom_output_field_name": "Server"
+        }
+    ],
+    "topic_name": "test_topic_1",
+    "kafka_host": "localhost:9092",
+    "rewrite_timestamp": "disable"
+}
