@@ -127,7 +127,7 @@ def convert_annotation(dir_path, output_path, image_path):
         out_file.write(str(cls_id) + " " + " ".join([str(a) for a in bb]) + '\n')
 
 if __name__=='__main__':
-    # current directory
+    # current directory path
     cwd = getcwd()
 
     # start conversion for each subsets (train, val and test) or any other name you can give
