@@ -12,6 +12,7 @@ import time
 # print(my_nums)
 # print(round(t2-t1,5), 'seconds')
 
+
 def square_num(nums):
     for i in nums:
         yield (i*i)
@@ -33,4 +34,17 @@ print(result)
 # Better to use the forloop bcoz it knows when to stop the iteration
 
 for i in result:
+    print(i)
+
+
+# Solving fibonacci using generators!
+def fibonacci(limit):
+    a, b = 0, 1
+    while a < limit:
+        yield a
+        a, b = b, a + b
+
+
+fib = fibonacci(40)
+for i in fib:
     print(i)
