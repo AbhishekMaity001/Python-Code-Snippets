@@ -1,0 +1,10 @@
+1. install Flask & flask-restful (flask-restful allows us to write class based Views as in Django)
+2. Create an object of Flask and pass __name__ to it
+3. Create an object of flask_restful class then pass the flask object created above eg. app
+4. Then Create a class and inside it write your get() or post() methods
+5. define the route of that class
+6. Create get, post, put, delete functions under your respective classes # always play on a hard coded dictionary first
+7. Setup POSTMAN ---> create a workspace ---> create a Collection ---> Keep on adding the requests & save them
+
+8. pip install flask-sqlalchemy # it is a kind of ORM that allows us to connect with our db withour using sql cmds
+   Its basically a middle man between flask and db
