@@ -7,4 +7,4 @@
 7. Setup POSTMAN ---> create a workspace ---> create a Collection ---> Keep on adding the requests & save them
 
 8. pip install flask-sqlalchemy # it is a kind of ORM that allows us to connect with our db withour using sql cmds
-   Its basically a middle man between flask and db
+   It's basically a middle man between flask and db
