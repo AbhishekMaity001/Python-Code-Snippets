@@ -21,3 +21,5 @@ db = SQLAlchemy(app)
     python >>> from app import db
                 db.create_all()
                 exit()
+
+11. After adding the db config class and all. make sure to serialize your objects before returning (@marshal_with)
