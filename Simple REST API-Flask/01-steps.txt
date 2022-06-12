@@ -6,5 +6,18 @@
 6. Create get, post, put, delete functions under your respective classes # always play on a hard coded dictionary first
 7. Setup POSTMAN ---> create a workspace ---> create a Collection ---> Keep on adding the requests & save them
 
-8. pip install flask-sqlalchemy # it is a kind of ORM that allows us to connect with our db withour using sql cmds
+8. pip install flask-sqlalchemy # it is a kind of ORM that allows us to connect with our db without using sql cmds
    It's basically a middle man between flask and db
+
+-------------------------DB CONFIGURATION-------------------------
+pip install flask-sqlalchemy
+from flask_sqlalchemy import SQLAlchemy
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///todo.db'
+db = SQLAlchemy(app)
+
+9. Now since the db is configured you need to create a Model so that you don't have to migrate that db.
+10. After creating the class go to your terminal ---->
+    python >>> from app import db
+                db.create_all()
+                exit()
